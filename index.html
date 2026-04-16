@@ -21,7 +21,7 @@
     .page { max-width: 480px; margin: 0 auto; }
 
     /* ── Profile ── */
-    .profile { text-align: center; margin-bottom: 36px; }
+    .profile { text-align: center; margin-bottom: 0; }
     .avatar-wrap {
       width: 88px; height: 88px; border-radius: 50%;
       margin: 0 auto 16px; overflow: hidden;
@@ -31,8 +31,95 @@
     .avatar-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .avatar-initials { font-size: 28px; font-weight: 800; color: #fff; }
     .profile-name { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 4px; }
-    .profile-tagline { font-size: 13px; font-weight: 600; color: #1D60D4; margin-bottom: 5px; }
-    .profile-bio { font-size: 12px; color: rgba(15,15,15,0.4); }
+    .profile-tagline { font-size: 13px; font-weight: 600; color: #1D60D4; margin-bottom: 20px; }
+
+    /* ── Scattered testimonials ── */
+    .quotes-scatter {
+      display: flex; flex-direction: column;
+      align-items: center; margin-bottom: 0; padding: 0 4px;
+    }
+    .pq-float {
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 15px;
+      font-size: 12px; line-height: 1.5;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+      max-width: 86%;
+      position: relative;
+    }
+    .pq-float.pq-good {
+      transform: rotate(-1.5deg);
+      align-self: flex-start;
+      margin-left: 8px;
+      color: rgba(15,15,15,0.72);
+    }
+    .pq-float.pq-real {
+      transform: rotate(1.2deg);
+      align-self: flex-end;
+      margin-right: 8px;
+      margin-top: -5px;
+      color: rgba(15,15,15,0.48);
+      font-style: italic;
+      background: #FFF9ED;
+    }
+    .pq-stars {
+      color: #E91E8C; font-size: 9px; letter-spacing: 2px;
+      display: block; margin-bottom: 4px;
+    }
+
+    /* ── Work with me pill ── */
+    .work-anchor {
+      display: inline-block;
+      margin-top: 18px; margin-bottom: 24px;
+      font-size: 12px; font-weight: 700;
+      color: #E91E8C;
+      border: 1.5px solid rgba(233,30,140,0.28);
+      border-radius: 100px; padding: 6px 18px;
+      text-decoration: none;
+      background: rgba(233,30,140,0.05);
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .work-anchor:hover { background: rgba(233,30,140,0.11); border-color: #E91E8C; }
+
+    /* ── Vibe ticker ── */
+    .vibe-strip {
+      overflow: hidden;
+      margin: 0 -20px;
+      padding: 9px 0;
+      border-top: 1px solid rgba(15,15,15,0.06);
+      border-bottom: 1px solid rgba(15,15,15,0.06);
+      background: rgba(255,255,255,0.5);
+    }
+    .vibe-track {
+      display: flex; align-items: center;
+      width: max-content;
+      animation: scroll-vibe 26s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes scroll-vibe {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .vibe-item {
+      font-size: 11px; font-weight: 600;
+      color: rgba(15,15,15,0.36);
+      padding: 0 16px; letter-spacing: 0.3px;
+    }
+    .vibe-dot { color: #E91E8C; font-size: 11px; line-height: 1; }
+
+    /* ── Grass animation ── */
+    .grass-section {
+      width: calc(100% + 40px);
+      margin: 0 -20px;
+      height: 72px;
+      overflow: hidden;
+      display: block;
+    }
+    #grass-svg { width: 100%; height: 72px; display: block; }
+    @keyframes grassway {
+      from { transform: rotate(var(--from, -4deg)); }
+      to   { transform: rotate(var(--to,   4deg)); }
+    }
 
     /* ── Section label ── */
     .section-label {
@@ -62,30 +149,131 @@
     .link-sub { font-size: 12px; color: rgba(15,15,15,0.45); margin-top: 1px; }
     .link-arrow { font-size: 16px; color: rgba(15,15,15,0.25); }
 
-    /* ── CTA ── */
-    .cta-section {
-      margin-top: 40px; background: #0F0F0F;
-      border-radius: 20px; padding: 32px 28px 28px; color: #EDEDEA;
+    /* ── Coffee CTA ── */
+    .coffee-cta { text-align: center; margin-top: 28px; }
+    .coffee-cta a {
+      font-size: 13px; font-weight: 600;
+      color: rgba(15,15,15,0.4);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(15,15,15,0.15);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
     }
-    .cta-eyebrow {
-      font-size: 10px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: #E91E8C; margin-bottom: 12px;
-    }
-    .cta-headline { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 10px; }
-    .cta-body { font-size: 14px; color: rgba(237,237,234,0.55); line-height: 1.6; margin-bottom: 24px; }
-    .cta-btn {
-      display: inline-block; background: #E91E8C; color: #fff;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px; font-weight: 700;
-      padding: 13px 24px; border-radius: 100px; text-decoration: none;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .coffee-cta a:hover { color: #E91E8C; border-color: #E91E8C; }
 
     /* ── Footer ── */
     .footer { text-align: center; margin-top: 32px; font-size: 11px; color: rgba(15,15,15,0.3); }
     .footer a { color: rgba(15,15,15,0.3); text-decoration: none; }
     .footer a:hover { color: #E91E8C; }
+
+    /* ── Lead capture quiz ── */
+    .quiz-wrap {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 26px 28px;
+      color: #0F0F0F;
+      margin-top: 40px;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-top: 3px solid #E91E8C;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .quiz-intro { margin-bottom: 24px; }
+    .quiz-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #E91E8C; margin-bottom: 10px;
+    }
+    .quiz-intro h2 {
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+      line-height: 1.2; color: #0F0F0F;
+    }
+    .q-progress { display: flex; gap: 6px; margin: 22px 0 26px; }
+    .q-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(0,0,0,0.1); transition: all 0.3s; }
+    .q-dot.done   { background: rgba(233,30,140,0.35); }
+    .q-dot.active { background: #E91E8C; width: 22px; border-radius: 3px; }
+    .q-step { display: none; }
+    .q-step.active { display: block; animation: qfade 0.22s ease-out; }
+    @keyframes qfade { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    .q-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(233,30,140,0.7); margin-bottom: 8px;
+    }
+    .q-q { font-size: 18px; font-weight: 800; letter-spacing: -0.4px; line-height: 1.25; margin-bottom: 5px; }
+    .q-sub { font-size: 12px; color: rgba(15,15,15,0.38); margin-bottom: 18px; line-height: 1.6; }
+    .q-opts { display: flex; flex-direction: column; gap: 7px; }
+    .q-opt {
+      display: flex; align-items: center; gap: 13px;
+      background: #F9F8F5;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-left: 3px solid transparent;
+      border-radius: 11px; padding: 13px 15px;
+      cursor: pointer; text-align: left; width: 100%;
+      font-family: inherit; color: #0F0F0F;
+      transition: border-left-color 0.18s, background 0.15s, transform 0.15s;
+    }
+    .q-opt::before {
+      content: '';
+      width: 17px; height: 17px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.18);
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .q-opt:hover {
+      border-left-color: #E91E8C;
+      background: #F4F2ED;
+      transform: translateX(2px);
+    }
+    .q-opt:hover::before { border-color: #E91E8C; background: rgba(233,30,140,0.08); }
+    .q-opt:hover .q-opt-arr { color: rgba(15,15,15,0.45); }
+    .q-opt-body { flex: 1; }
+    .q-opt-title { font-size: 14px; font-weight: 700; line-height: 1.3; }
+    .q-opt-sub { font-size: 11px; color: rgba(15,15,15,0.4); margin-top: 3px; line-height: 1.4; }
+    .q-opt-arr { font-size: 14px; color: rgba(15,15,15,0.18); transition: color 0.18s; }
+    .q-fields { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .q-flabel {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: rgba(15,15,15,0.35); margin-bottom: 4px;
+    }
+    .q-finput, .q-ftarea {
+      background: #F4F2ED;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px; padding: 11px 14px;
+      font-family: inherit; font-size: 13px; color: #0F0F0F;
+      outline: none; transition: border-color 0.15s; width: 100%;
+    }
+    .q-finput::placeholder, .q-ftarea::placeholder { color: rgba(15,15,15,0.28); }
+    .q-finput:focus, .q-ftarea:focus { border-color: rgba(233,30,140,0.5); }
+    .q-ftarea { resize: none; min-height: 64px; }
+    .q-fopt { font-size: 10px; color: rgba(15,15,15,0.28); margin-left: 3px; font-weight: 400; }
+    .q-submit {
+      display: block; width: 100%; text-align: center;
+      background: #E91E8C; color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.2px;
+      padding: 14px; border-radius: 100px; border: none;
+      cursor: pointer; transition: opacity 0.2s, transform 0.12s;
+    }
+    .q-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+    .q-back {
+      background: none; border: none;
+      color: rgba(15,15,15,0.28);
+      font-family: inherit; font-size: 11px; letter-spacing: 0.3px;
+      cursor: pointer; padding: 12px 0 0;
+      display: block; text-align: center; transition: color 0.15s;
+    }
+    .q-back:hover { color: rgba(15,15,15,0.55); }
+    .q-rdivider { width: 28px; height: 2px; background: #E91E8C; border-radius: 2px; margin-bottom: 20px; }
+    .q-rname { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 10px; color: #0F0F0F; }
+    .q-rmsg { font-size: 13px; color: rgba(15,15,15,0.45); line-height: 1.7; margin-bottom: 22px; }
+    .q-rcta {
+      display: block; text-align: center;
+      background: #E91E8C; color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; font-weight: 700;
+      padding: 14px; border-radius: 100px;
+      text-decoration: none; margin-bottom: 8px; transition: opacity 0.2s;
+    }
+    .q-rcta:hover { opacity: 0.88; }
+    .q-rcta.sec { background: rgba(0,0,0,0.05); color: rgba(15,15,15,0.5); }
   </style>
 </head>
 <body>
@@ -98,13 +286,70 @@
     </div>
     <div class="profile-name">Ezra 🌱</div>
     <div class="profile-tagline">making tech work for humans, not the other way around</div>
-    <div class="profile-bio">woman-owned · queer · human-first tech</div>
+
+    <!-- Scattered testimonials -->
+    <div class="quotes-scatter">
+      <div class="pq-float pq-good">
+        <span class="pq-stars">★★★★★</span>
+        "she genuinely changed how my whole business works."
+      </div>
+      <div class="pq-float pq-real">"kind of a bitch." ⭐</div>
+    </div>
+
   </div>
 
-  <!-- LINKS — edit href, title, sub to update. Copy a block to add a new link. -->
+  <!-- VIBE TICKER -->
+  <div class="vibe-strip">
+    <div class="vibe-track">
+      <span class="vibe-item">Vancouver WA</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🍓</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Portland, Oregon</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🌻</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Design the Difference</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🩷</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Kind of a lot</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🌱</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Making tech human</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">✨</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">#alsotrans</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🌲</span><span class="vibe-dot">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="vibe-item">Vancouver WA</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🍓</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Portland, Oregon</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🌻</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Design the Difference</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🩷</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Kind of a lot</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🌱</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">Making tech human</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">✨</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">#alsotrans</span><span class="vibe-dot">·</span>
+      <span class="vibe-item">🌲</span><span class="vibe-dot">·</span>
+    </div>
+  </div>
+
+  <!-- GRASS ANIMATION -->
+  <div class="grass-section">
+    <svg id="grass-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
+  </div>
+
+  <!-- LINKS -->
   <p class="section-label">Find me</p>
   <div class="links">
 
+    <!-- 1. Content brand — top, works for both personal + professional visitors -->
+    <a class="link-card" href="https://substack.com/@designthedifference" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="#0F0F0F" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+        </svg>
+      </div>
+      <div class="link-text"><div class="link-title">Design the Difference</div><div class="link-sub">Substack · design & tech writing</div></div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <!-- 2 & 3. Personal socials — same handle, natural pair -->
     <a class="link-card" href="https://www.threads.net/@literally.ez" target="_blank" rel="noopener">
       <div class="link-icon">
         <svg viewBox="0 0 192 192" fill="#0F0F0F" xmlns="http://www.w3.org/2000/svg">
@@ -125,30 +370,21 @@
       <span class="link-arrow">›</span>
     </a>
 
-    <a class="link-card" href="https://substack.com/@designthedifference" target="_blank" rel="noopener">
-      <!-- VERIFY: may be https://designthedifference.substack.com -->
+    <!-- 4. LinkedIn — active, professionals expect to find it early -->
+    <a class="link-card" href="https://linkedin.com/in/ezzzcreative" target="_blank" rel="noopener">
       <div class="link-icon">
         <svg viewBox="0 0 24 24" fill="#0F0F0F" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
       </div>
-      <div class="link-text"><div class="link-title">Design the Difference</div><div class="link-sub">Substack · design & tech writing</div></div>
+      <div class="link-text"><div class="link-title">LinkedIn</div><div class="link-sub">ezzzcreative</div></div>
       <span class="link-arrow">›</span>
     </a>
 
-    <a class="link-card" href="https://medium.com/design-the-difference" target="_blank" rel="noopener">
-      <div class="link-icon">
-        <svg viewBox="0 0 24 24" fill="#0F0F0F" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-        </svg>
-      </div>
-      <div class="link-text"><div class="link-title">Medium</div><div class="link-sub">Design the Difference</div></div>
-      <span class="link-arrow">›</span>
-    </a>
-
+    <!-- 5 & 6. Portfolio + GitHub — professional/technical pair -->
     <a class="link-card" href="https://ezraseal.dev" target="_blank" rel="noopener">
       <div class="link-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
@@ -167,24 +403,113 @@
       <span class="link-arrow">›</span>
     </a>
 
-    <a class="link-card" href="https://linkedin.com/in/ezzzcreative" target="_blank" rel="noopener">
+    <!-- 7. Medium — dormant, bottom -->
+    <a class="link-card" href="https://medium.com/design-the-difference" target="_blank" rel="noopener">
       <div class="link-icon">
         <svg viewBox="0 0 24 24" fill="#0F0F0F" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
         </svg>
       </div>
-      <div class="link-text"><div class="link-title">LinkedIn</div><div class="link-sub">ezzzcreative</div></div>
+      <div class="link-text"><div class="link-title">Medium</div><div class="link-sub">Design the Difference</div></div>
       <span class="link-arrow">›</span>
     </a>
 
   </div>
 
-  <!-- CTA — edit headline, body, and href below to update -->
-  <div class="cta-section">
-    <div class="cta-eyebrow">Work with me</div>
-    <div class="cta-headline">You're good at what you do.<br>Let me handle the digital side.</div>
-    <div class="cta-body">Whether you need a website, a strategy, or just don't know where to start — tell me what you're working on and I'll point you in the right direction.</div>
-    <a class="cta-btn" href="https://tally.so/r/rjdxP5" target="_blank" rel="noopener">Tell me what you need →</a>
+  <!-- LEAD CAPTURE QUIZ -->
+  <div class="quiz-wrap" id="quiz-section">
+    <div class="quiz-intro">
+      <div class="quiz-eyebrow">Work with me</div>
+      <h2>You're good at what you do.<br>Let me handle the technical stuff.</h2>
+    </div>
+
+    <div class="q-progress">
+      <div class="q-dot active" id="qd-0"></div>
+      <div class="q-dot" id="qd-1"></div>
+      <div class="q-dot" id="qd-2"></div>
+      <div class="q-dot" id="qd-3"></div>
+    </div>
+
+    <!-- Step 0 -->
+    <div class="q-step active" id="qs-0">
+      <p class="q-label">Step 1 of 3</p>
+      <h3 class="q-q">What's going on?</h3>
+      <p class="q-sub">No pressure — just finding where to start.</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="qpick('need','website')">
+          <div class="q-opt-body"><div class="q-opt-title">I need a digital presence</div><div class="q-opt-sub">No website yet, or the one I have isn't working for me</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+        <button class="q-opt" onclick="qpick('need','systems')">
+          <div class="q-opt-body"><div class="q-opt-title">I need to work smarter</div><div class="q-opt-sub">My tools and workflows feel chaotic — I'm doing too much manually</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+        <button class="q-opt" onclick="qpick('need','strategy')">
+          <div class="q-opt-body"><div class="q-opt-title">I want more customers</div><div class="q-opt-sub">The foundation's there — I need a real plan to grow</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+        <button class="q-opt" onclick="qpick('need','unsure')">
+          <div class="q-opt-body"><div class="q-opt-title">Not sure where to start</div><div class="q-opt-sub">Something's off — let's figure it out together</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="q-step" id="qs-1">
+      <p class="q-label">Step 2 of 3</p>
+      <h3 class="q-q">What's your ballpark budget?</h3>
+      <p class="q-sub">Helps me point you to the right fit right away.</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="qpick('budget','low')">
+          <div class="q-opt-body"><div class="q-opt-title">Under $300/mo</div><div class="q-opt-sub">Starting lean, keeping it simple</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+        <button class="q-opt" onclick="qpick('budget','mid')">
+          <div class="q-opt-body"><div class="q-opt-title">$300 – $1,000</div><div class="q-opt-sub">Serious about this and ready to invest</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+        <button class="q-opt" onclick="qpick('budget','high')">
+          <div class="q-opt-body"><div class="q-opt-title">$1,000+</div><div class="q-opt-sub">This is a real investment</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+        <button class="q-opt" onclick="qpick('budget','unknown')">
+          <div class="q-opt-body"><div class="q-opt-title">No idea yet</div><div class="q-opt-sub">Let's figure that out together</div></div>
+          <span class="q-opt-arr">›</span>
+        </button>
+      </div>
+      <button class="q-back" onclick="qgoto(0)">← Back</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="q-step" id="qs-2">
+      <p class="q-label">Step 3 of 3</p>
+      <h3 class="q-q">Almost there — where do I send your match?</h3>
+      <p class="q-sub">I'll reach out within 24 hours with your recommendation.</p>
+      <div class="q-fields">
+        <div><div class="q-flabel">YOUR NAME</div><input class="q-finput" id="qf-name" type="text" placeholder="First name" autocomplete="given-name"/></div>
+        <div><div class="q-flabel">EMAIL</div><input class="q-finput" id="qf-email" type="email" placeholder="you@example.com" autocomplete="email"/></div>
+        <div><div class="q-flabel">PHONE <span class="q-fopt">(optional — for SMS updates)</span></div><input class="q-finput" id="qf-phone" type="tel" placeholder="(503) 555-0100" autocomplete="tel"/></div>
+        <div><div class="q-flabel">ANYTHING ELSE? <span class="q-fopt">(optional)</span></div><textarea class="q-ftarea" id="qf-notes" placeholder="Tell me what's going on — even a sentence helps."></textarea></div>
+      </div>
+      <button class="q-submit" onclick="qsubmit()">Send it →</button>
+      <button class="q-back" onclick="qgoto(1)">← Back</button>
+    </div>
+
+    <!-- Step 3: Result -->
+    <div class="q-step" id="qs-3">
+      <div class="q-rdivider"></div>
+      <h3 class="q-rname" id="q-rname">You're in.</h3>
+      <p class="q-rmsg" id="q-rmsg">We'll be in touch shortly.</p>
+      <a class="q-rcta" id="q-rcta" href="#" target="_blank" rel="noopener">See your match →</a>
+      <a class="q-rcta sec" href="https://ezzzcreative.com" target="_blank" rel="noopener">ezzzcreative.com →</a>
+    </div>
+  </div>
+
+  <div class="coffee-cta">
+    <a href="https://calendly.com/ezra-ezzzcreative/one-on-one-w-ezra" target="_blank" rel="noopener">
+      ☕ Book a coffee chat
+    </a>
   </div>
 
   <div class="footer">
@@ -192,5 +517,180 @@
   </div>
 
 </div>
+<script>
+// ── Grass + flowers generator ──
+(function buildGrass() {
+  var svg = document.getElementById('grass-svg');
+  var W = 520, H = 72;
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+  var grassColors = [
+    '#8fba6e','#a3c97f','#7aae58','#b5d494',
+    '#6ea352','#94c275','#7dae60','#9dc878',
+    '#85b565','#a8cf84','#779e56'
+  ];
+
+  // ── Grass blades ──
+  var bladeCount = 30;
+  for (var i = 0; i < bladeCount; i++) {
+    var segW = W / bladeCount;
+    var x = segW * i + segW * 0.15 + Math.random() * segW * 0.7;
+    var h = 22 + Math.random() * 44;
+    var w = 2.2 + Math.random() * 2.4;
+    var color = grassColors[Math.floor(Math.random() * grassColors.length)];
+    var dur = (2.0 + Math.random() * 2.4).toFixed(2);
+    var del = (Math.random() * 2.8).toFixed(2);
+    var fromDeg = -(2.5 + Math.random() * 3.5);
+    var toDeg   =  (2.5 + Math.random() * 3.5);
+    var tipOff  = (Math.random() - 0.5) * 9;
+    var tipX = x + tipOff;
+    var tipY = H - h;
+
+    var d = 'M' + (x - w).toFixed(1) + ',' + H +
+            ' Q' + (x - w * 0.4 + tipOff * 0.35).toFixed(1) + ',' + (H - h * 0.52).toFixed(1) +
+            ' ' + tipX.toFixed(1) + ',' + tipY.toFixed(1) +
+            ' Q' + (tipX + w * 0.5).toFixed(1) + ',' + (H - h * 0.52).toFixed(1) +
+            ' ' + (x + w).toFixed(1) + ',' + H + ' Z';
+
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('fill', color);
+    path.setAttribute('opacity', (0.55 + Math.random() * 0.38).toFixed(2));
+    path.style.transformOrigin = x.toFixed(1) + 'px ' + H + 'px';
+    path.style.setProperty('--from', fromDeg.toFixed(1) + 'deg');
+    path.style.setProperty('--to',   toDeg.toFixed(1)   + 'deg');
+    path.style.animation = 'grassway ' + dur + 's ' + del + 's ease-in-out infinite alternate';
+    svg.appendChild(path);
+  }
+
+  // ── Flowers ──
+  var flowers = [
+    { x: 38,  stemH: 44, petals: '#F9A8D4', center: '#FDE047', petalCount: 6 },
+    { x: 98,  stemH: 36, petals: '#fff',    center: '#FDE047', petalCount: 5 },
+    { x: 172, stemH: 50, petals: '#F9A8D4', center: '#FBBF24', petalCount: 6 },
+    { x: 248, stemH: 40, petals: '#fff',    center: '#FDE047', petalCount: 5 },
+    { x: 318, stemH: 46, petals: '#fda4af', center: '#FDE047', petalCount: 6 },
+    { x: 392, stemH: 38, petals: '#fff',    center: '#FBBF24', petalCount: 5 },
+    { x: 462, stemH: 48, petals: '#F9A8D4', center: '#FDE047', petalCount: 6 },
+  ];
+
+  flowers.forEach(function(f) {
+    var fx = f.x + (Math.random() - 0.5) * 12;
+    var dur = (2.2 + Math.random() * 1.8).toFixed(2);
+    var del = (Math.random() * 3.0).toFixed(2);
+    var fromDeg = -(3 + Math.random() * 3);
+    var toDeg   =  (3 + Math.random() * 3);
+
+    var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.style.transformOrigin = fx.toFixed(1) + 'px ' + H + 'px';
+    g.style.setProperty('--from', fromDeg.toFixed(1) + 'deg');
+    g.style.setProperty('--to',   toDeg.toFixed(1)   + 'deg');
+    g.style.animation = 'grassway ' + dur + 's ' + del + 's ease-in-out infinite alternate';
+
+    // Stem
+    var stem = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    stem.setAttribute('x', (fx - 1).toFixed(1));
+    stem.setAttribute('y', (H - f.stemH).toFixed(1));
+    stem.setAttribute('width', '2');
+    stem.setAttribute('height', f.stemH);
+    stem.setAttribute('rx', '1');
+    stem.setAttribute('fill', '#7aae58');
+    g.appendChild(stem);
+
+    // Petals
+    var headY = H - f.stemH;
+    var pr = 4.2, pd = 5;
+    for (var p = 0; p < f.petalCount; p++) {
+      var angle = (p / f.petalCount) * Math.PI * 2 - Math.PI / 2;
+      var petal = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      petal.setAttribute('cx', (fx + Math.cos(angle) * pd).toFixed(1));
+      petal.setAttribute('cy', (headY + Math.sin(angle) * pd).toFixed(1));
+      petal.setAttribute('r',  pr.toFixed(1));
+      petal.setAttribute('fill', f.petals);
+      petal.setAttribute('opacity', '0.92');
+      g.appendChild(petal);
+    }
+
+    // Center
+    var cir = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    cir.setAttribute('cx', fx.toFixed(1));
+    cir.setAttribute('cy', headY.toFixed(1));
+    cir.setAttribute('r',  '3.5');
+    cir.setAttribute('fill', f.center);
+    g.appendChild(cir);
+
+    svg.appendChild(g);
+  });
+})();
+
+// ── Quiz ──
+(function() {
+  var STRIPE = {
+    starter: 'https://buy.stripe.com/4gM8wQaYtaTDbQm6Ef0kE02',
+    growth:  'https://buy.stripe.com/dRmfZi4A5f9T9Ie3s30kE01'
+  };
+  // SETUP: paste your Make.com Custom Webhook URL here once created
+  var HOOK = 'REPLACE_WITH_MAKE_WEBHOOK_URL';
+  var state = { need: null, budget: null };
+
+  window.qpick = function(key, val) {
+    state[key] = val;
+    qgoto(key === 'need' ? 1 : 2);
+  };
+
+  window.qgoto = function(n) {
+    document.querySelectorAll('.q-step').forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById('qs-' + n).classList.add('active');
+    [0,1,2,3].forEach(function(i) {
+      var d = document.getElementById('qd-' + i);
+      d.className = 'q-dot';
+      if (i < n)  d.classList.add('done');
+      if (i === n) d.classList.add('active');
+    });
+    document.querySelector('.quiz-wrap').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  };
+
+  window.qsubmit = function() {
+    var name  = document.getElementById('qf-name').value.trim();
+    var email = document.getElementById('qf-email').value.trim();
+    var phone = document.getElementById('qf-phone').value.trim();
+    var notes = document.getElementById('qf-notes').value.trim();
+    if (!name)  { document.getElementById('qf-name').focus(); return; }
+    if (!email || !email.includes('@')) { document.getElementById('qf-email').focus(); return; }
+
+    var result = state.budget === 'high' ? 'call' :
+                 state.need === 'website' && state.budget !== 'mid' ? 'starter' :
+                 state.need === 'website' ? 'growth' :
+                 (state.need === 'systems' || state.need === 'strategy') && state.budget === 'low' ? 'growth' :
+                 'call';
+
+    var first = name.split(' ')[0];
+    document.getElementById('q-rname').textContent = 'You\'re in, ' + first + '. ✨';
+
+    if (result === 'starter') {
+      document.getElementById('q-rmsg').textContent = 'Starter plan looks like your fit — a dedicated designer in your corner for $100/mo, no upfront cost. Confirmation coming to ' + email + '.';
+      document.getElementById('q-rcta').textContent = 'Lock in Starter — $100/mo →';
+      document.getElementById('q-rcta').href = STRIPE.starter;
+    } else if (result === 'growth') {
+      document.getElementById('q-rmsg').textContent = 'Growth plan fits — full design support plus monthly consulting for $300/mo. Confirmation coming to ' + email + '.';
+      document.getElementById('q-rcta').textContent = 'Lock in Growth — $300/mo →';
+      document.getElementById('q-rcta').href = STRIPE.growth;
+    } else {
+      document.getElementById('q-rmsg').innerHTML = 'This sounds worth a real conversation. I\'ll reach out to <strong>' + email + '</strong> to set up a quick discovery call — no pitch, just figuring out the right fit.';
+      document.getElementById('q-rcta').textContent = 'Meanwhile → ezzzcreative.com';
+      document.getElementById('q-rcta').href = 'https://ezzzcreative.com';
+    }
+
+    qgoto(3);
+
+    if (HOOK !== 'REPLACE_WITH_MAKE_WEBHOOK_URL') {
+      fetch(HOOK, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, email: email, phone: phone, need: state.need, budget: state.budget, notes: notes, source: 'ezra-personal-bio' })
+      }).catch(function() {});
+    }
+  };
+})();
+</script>
 </body>
 </html>
