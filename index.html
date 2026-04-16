@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ezra 🌱</title>
+  <meta name="description" content="Web designer, developer, and writer."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: #F4F2ED;
+      color: #0F0F0F;
+      min-height: 100vh;
+      padding: 48px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── Profile ── */
+    .profile {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .avatar-wrap {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      overflow: hidden;
+      border: 3px solid #ECEAE5;
+      background: #1D60D4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .avatar-initials {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .profile-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .profile-bio {
+      font-size: 14px;
+      color: rgba(15,15,15,0.55);
+      line-height: 1.5;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(15,15,15,0.35);
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+
+    /* ── Link cards ── */
+    .links { display: flex; flex-direction: column; gap: 10px; }
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #fff;
+      border: 1px solid #ECEAE5;
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-decoration: none;
+      color: #0F0F0F;
+      font-weight: 600;
+      font-size: 15px;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      cursor: pointer;
+    }
+    .link-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-color: #1D60D4;
+    }
+    .link-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #F4F2ED;
+    }
+    .link-icon img {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+    .link-text { flex: 1; }
+    .link-title { font-size: 14px; font-weight: 700; }
+    .link-sub { font-size: 12px; color: rgba(15,15,15,0.45); margin-top: 1px; }
+    .link-arrow {
+      font-size: 16px;
+      color: rgba(15,15,15,0.25);
+    }
+
+    /* ── Offer section ── */
+    .offer-section {
+      margin-top: 40px;
+    }
+    .offer-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .offer-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .offer-header p {
+      font-size: 13px;
+      color: rgba(15,15,15,0.5);
+      line-height: 1.5;
+    }
+    .offer-cards { display: flex; flex-direction: column; gap: 12px; }
+    .offer-card {
+      display: block;
+      background: #fff;
+      border: 1.5px solid #ECEAE5;
+      border-radius: 16px;
+      padding: 20px 20px 18px;
+      text-decoration: none;
+      color: #0F0F0F;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .offer-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+    }
+    .offer-card.featured {
+      border-color: #1D60D4;
+      background: #0F0F0F;
+      color: #EDEDEA;
+    }
+    .offer-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #1D60D4;
+      margin-bottom: 8px;
+    }
+    .offer-card.featured .offer-tag { color: #5BADFF; }
+    .offer-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 4px;
+    }
+    .offer-desc {
+      font-size: 13px;
+      color: rgba(15,15,15,0.5);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .offer-card.featured .offer-desc { color: rgba(237,237,234,0.5); }
+    .offer-price {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .offer-price span {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(15,15,15,0.4);
+      letter-spacing: 0;
+    }
+    .offer-card.featured .offer-price span { color: rgba(237,237,234,0.4); }
+    .offer-cta {
+      display: inline-block;
+      margin-top: 14px;
+      background: #1D60D4;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 100px;
+    }
+    .offer-card.featured .offer-cta {
+      background: #5BADFF;
+      color: #04111f;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 11px;
+      color: rgba(15,15,15,0.3);
+    }
+    .footer a { color: rgba(15,15,15,0.3); text-decoration: none; }
+    .footer a:hover { color: #1D60D4; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── PROFILE ── -->
+  <div class="profile">
+    <div class="avatar-wrap">
+      <!--
+        TO UPDATE PHOTO:
+        1. Upload your headshot to your GitHub repo (e.g. /assets/ezra.jpg)
+        2. Replace the line below with: <img src="./assets/ezra.jpg" alt="Ezra"/>
+        For now, shows your initials.
+      -->
+      <span class="avatar-initials">E</span>
+    </div>
+    <div class="profile-name">Ezra 🌱</div>
+    <div class="profile-bio">
+      <!--
+        BIO OPTIONS — pick one and delete the rest:
+        "web designer · developer · writer"
+        "I build websites and write about design."
+        "making the internet work for small businesses"
+        "designer. developer. overthinker."
+        "I build things on the internet — websites, words, and whatever's next."
+      -->
+      web designer · developer · writer
+    </div>
+  </div>
+
+  <!-- ── LINKS ──
+    TO EDIT: Change the href, emoji, title, and subtitle for any card below.
+    Add a new card by copying one <a class="link-card"> block.
+  -->
+  <p class="section-label">Find me</p>
+  <div class="links" id="links">
+
+    <a class="link-card" href="https://www.threads.net/@literally.ez" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <img src="https://cdn.simpleicons.org/threads/0F0F0F" alt="Threads"/>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Threads</div>
+        <div class="link-sub">@literally.ez</div>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://www.instagram.com/literally.ez" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <img src="https://cdn.simpleicons.org/instagram/0F0F0F" alt="Instagram"/>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Instagram</div>
+        <div class="link-sub">@literally.ez</div>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://substack.com/@designthedifference" target="_blank" rel="noopener">
+      <!-- VERIFY URL — may be https://designthedifference.substack.com -->
+      <div class="link-icon">
+        <img src="https://cdn.simpleicons.org/substack/0F0F0F" alt="Substack"/>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Design the Difference</div>
+        <div class="link-sub">Substack · design & tech writing</div>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://medium.com/design-the-difference" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <img src="https://cdn.simpleicons.org/medium/0F0F0F" alt="Medium"/>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Medium</div>
+        <div class="link-sub">Design the Difference</div>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://ezraseal.dev" target="_blank" rel="noopener">
+      <div class="link-icon" style="background:#0F0F0F;">
+        <img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Portfolio"/>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Portfolio</div>
+        <div class="link-sub">ezraseal.dev</div>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://github.com/ScalewithEzra" target="_blank" rel="noopener">
+      <div class="link-icon" style="background:#0F0F0F;">
+        <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"/>
+      </div>
+      <div class="link-text">
+        <div class="link-title">GitHub</div>
+        <div class="link-sub">ScalewithEzra</div>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://linkedin.com/in/ezzzcreative" target="_blank" rel="noopener">
+      <div class="link-icon" style="background:#0A66C2;">
+        <img src="https://cdn.simpleicons.org/linkedin/ffffff" alt="LinkedIn"/>
+      </div>
+      <div class="link-text">
+        <div class="link-title">LinkedIn</div>
+        <div class="link-sub">ezzzcreative</div>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+  </div>
+
+  <!-- ── OFFER ── -->
+  <div class="offer-section">
+    <div class="offer-header">
+      <h2>Need a website?</h2>
+      <p>I build and maintain sites for small businesses — starting at $100/month. No upfront cost.</p>
+    </div>
+    <div class="offer-cards">
+
+      <a class="offer-card" href="https://ezzzcreative.com" target="_blank" rel="noopener">
+        <div class="offer-tag">Starter</div>
+        <div class="offer-name">Website + monthly support</div>
+        <div class="offer-desc">Site built free. Unlimited small updates, hosting included, live within one week.</div>
+        <div class="offer-price">$100 <span>/ month</span></div>
+        <span class="offer-cta">Learn more →</span>
+      </a>
+
+      <a class="offer-card featured" href="https://ezzzcreative.com" target="_blank" rel="noopener">
+        <div class="offer-tag">Growth</div>
+        <div class="offer-name">Website + strategy + consulting</div>
+        <div class="offer-desc">Everything in Starter plus monthly check-ins, SEO, and 3 hours of consulting.</div>
+        <div class="offer-price">$300 <span>/ month</span></div>
+        <span class="offer-cta">Learn more →</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <a href="https://ezzzcreative.com">built with ezzzcreative 🌱</a>
+  </div>
+
+</div>
+</body>
+</html>
